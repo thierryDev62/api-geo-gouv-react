@@ -1,4 +1,5 @@
 import Form from './components/Form';
+import FormContextProvider from "./components/context/FormContext";
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
       </div>
       <div className="row p-5 mt-5 justify-content-center px-0">
         <div className="col-md-6 bg-warning border border-dark shadow-lg px-0 px-md-5 py-5">
+            <FormContextProvider>
           <Form />
+            </FormContextProvider>
         </div>
       </div>
     </div>

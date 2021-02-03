@@ -11,13 +11,17 @@ body {
 ul {
     max-height: 20vh;
     width: 100%;
-    overflow: auto;
     overflow-y: auto;
 }
 
 li:hover {
     cursor: pointer;
     background-color: tomato;
+    color: #fff;
+}
+
+#basic-addon1 {
+    background: tomato;
     color: #fff;
 }
 
