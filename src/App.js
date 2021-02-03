@@ -8,7 +8,7 @@ function App() {
       <div className="row">
         <div className="col text-center">
           <h1>Get cities with zipcode from geo.api.gouv.fr (France)</h1>
-          <h2>Made with React ❤️</h2>
+            <h2>Made with React <span role="img" aria-label="heart emoji">❤</span>️</h2>
         </div>
       </div>
       <div className="row p-5 mt-5 justify-content-center px-0">
