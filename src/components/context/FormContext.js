@@ -10,41 +10,34 @@ const FormContextProvider = (props) => {
     const [cities, setCities] = useState([]);
     const [zipcode, setZipcode] = useState('');
     const [cityChosen, setCityChosen] = useState('');
-    const [result, setResult] = useState(true);
-    const [showCities, setShowCities] = useState(false);
-    const [showChoice, setShowChoice] = useState(false);
+    const [onSearch, setOnsearch] = useState(false);
 
     const zipcodeInput = (code) => {
         setZipcode(code);
-        axios.get(baseUrl + code)
-            .then(resp => {
-                if (resp.data.length !== 0 && code.length === 5) {
+        if(code.length === 5) {
+            setOnsearch(true);
+            axios.get(baseUrl + code)
+                .then(resp => {
                     setCities(resp.data);
-                    setShowCities(true);
-                } else if (resp.data.length === 0 && code.length === 5) {
-                    setResult(false);
-                } else {
-                    setResult(true);
-                    setShowCities(false);
-                    setShowChoice(false);
-                }
-            })
+                    setOnsearch(false);
+                })
+        } else {
+            setCities([]);
+            setCityChosen('');
+        }
     }
 
     const cityClick = (index) => {
         setCityChosen(cities[index].nom);
-        setShowChoice(true);
     }
 
     const handleClickCross = () => {
         setCityChosen('');
         setZipcode('');
-        setShowCities(false);
-        setShowChoice(false);
     }
 
     return(
-        <FormContext.Provider value={{cities, zipcode, cityChosen, result, showCities, showChoice, zipcodeInput, cityClick, handleClickCross}}>
+        <FormContext.Provider value={{cities, zipcode, cityChosen, onSearch, zipcodeInput, cityClick, handleClickCross}}>
             {props.children}
         </FormContext.Provider>
     )

@@ -3,16 +3,15 @@ import {FormContext} from "./context/FormContext";
 
 const Choice = () => {
 
-    const {showChoice, cityChosen} = useContext(FormContext);
+    const {cityChosen} = useContext(FormContext);
 
     return (
         <>
             {
-                showChoice &&
+                cityChosen !== '' &&
                 <div className="alert alert-warning mt-5" role="alert">
                     Vous avez choisi la ville de : <strong>{cityChosen}</strong>
                 </div>
-
             }
         </>
     );
