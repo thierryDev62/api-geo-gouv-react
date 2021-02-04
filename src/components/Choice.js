@@ -10,7 +10,7 @@ const Choice = () => {
             {
                 cityChosen !== '' &&
                 <div className="alert alert-warning mt-5" role="alert">
-                    Vous avez choisi la ville de : <strong>{cityChosen}</strong>
+                    Vous avez choisi la ville de : <strong className="text-danger">{cityChosen}</strong>
                 </div>
             }
         </>
