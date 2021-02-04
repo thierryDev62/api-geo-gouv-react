@@ -5,12 +5,12 @@ import {FormContext} from "./context/FormContext";
 
 const DisplayCities = () => {
 
-    const {result, showCities, cities, cityClick} = useContext(FormContext);
+    const {noResult, showCities, cities, cityClick} = useContext(FormContext);
 
     return (
         <>
             {
-                result ?
+                noResult ?
                     showCities &&
                     <ul className="list-group"> {
                         cities.map((city, index) =>
@@ -22,7 +22,7 @@ const DisplayCities = () => {
                         )
                     }
                     </ul>
-                    : !result ? <div className="alert alert-danger fw-bold" role="alert">
+                    : !noResult ? <div className="alert alert-danger fw-bold" role="alert">
                         Le code postal que vous avez saisi n'est pas reconnu !
                     </div> : ''
             }

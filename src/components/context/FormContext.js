@@ -10,7 +10,7 @@ const FormContextProvider = (props) => {
     const [cities, setCities] = useState([]);
     const [zipcode, setZipcode] = useState('');
     const [cityChosen, setCityChosen] = useState('');
-    const [result, setResult] = useState(true);
+    const [noResult, setNoResult] = useState(true);
     const [showCities, setShowCities] = useState(false);
     const [showChoice, setShowChoice] = useState(false);
 
@@ -21,14 +21,10 @@ const FormContextProvider = (props) => {
                 if (resp.data.length !== 0 && code.length === 5) {
                     setCities(resp.data);
                     setShowCities(true);
-                } else if (resp.data.length === 0 && code.length === 5) {
-                    setResult(false);
-                } else if (resp.data.length > 0 && code.length < 5) {
-                    setResult(false);
-                }
-                
-                else {
-                    setResult(true);
+                } else if (code.length === 5) {
+                    setNoResult(false);
+                }else {
+                    setNoResult(true);
                     setShowCities(false);
                     setShowChoice(false);
                 }
@@ -45,11 +41,11 @@ const FormContextProvider = (props) => {
         setZipcode('');
         setShowCities(false);
         setShowChoice(false);
-        setResult(true);
+        setNoResult(true);
     }
 
     return(
-        <FormContext.Provider value={{cities, zipcode, cityChosen, result, showCities, showChoice, zipcodeInput, cityClick, handleClickCross}}>
+        <FormContext.Provider value={{cities, zipcode, cityChosen, noResult, showCities, showChoice, zipcodeInput, cityClick, handleClickCross}}>
             {props.children}
         </FormContext.Provider>
     )
