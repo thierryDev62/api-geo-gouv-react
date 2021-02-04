@@ -23,7 +23,11 @@ const FormContextProvider = (props) => {
                     setShowCities(true);
                 } else if (resp.data.length === 0 && code.length === 5) {
                     setResult(false);
-                } else {
+                } else if (resp.data.length > 0 && code.length < 5) {
+                    setResult(false);
+                }
+                
+                else {
                     setResult(true);
                     setShowCities(false);
                     setShowChoice(false);
@@ -41,6 +45,7 @@ const FormContextProvider = (props) => {
         setZipcode('');
         setShowCities(false);
         setShowChoice(false);
+        setResult(true);
     }
 
     return(
