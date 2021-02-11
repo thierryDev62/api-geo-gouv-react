@@ -21,9 +21,6 @@ const FormContextProvider = (props) => {
                     setCities(resp.data);
                     setOnsearch(false);
                 })
-        } else {
-            setCities([]);
-            setCityChosen('');
         }
     }
 

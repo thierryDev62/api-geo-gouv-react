@@ -9,7 +9,7 @@ body {
 }
 
 ul {
-    max-height: 20vh;
+    max-height: 20em;
     width: 100%;
     overflow-y: auto;
 }
@@ -27,4 +27,8 @@ li:hover {
 
 #basic-addon1:hover {
     cursor: pointer;
+}
+
+.list-group-item {
+    border: none!important;
 }
